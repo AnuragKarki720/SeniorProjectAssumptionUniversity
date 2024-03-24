@@ -1,9 +1,9 @@
 from flask import Flask, request
-import webview
+
 
 # Create a new Flask app
 app = Flask(__name__)
-window = webview.create_window('LifeFactors', app)
+
 # Import route definitions from diabetesapp.py
 from appdiabetes import *
 
