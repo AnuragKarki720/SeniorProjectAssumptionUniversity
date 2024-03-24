@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Diabetes Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <div style="font-size: 32px; color: white;"><b>LifeFactors</b></div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('diabeteshome') }}">Diabetes</a></li>
+                <li><a href="{{ url_for('hearthome') }}">Heart</a></li>
+                <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+    <div class="main-content">
+        <div class="left-column">
+        <h4> Prediabetic Prediction </h4>
+        <h3> This is based on the dataset from 2021 to 2022
+        From the CDC Behavioral Risk Factor Surveillance Survey </h3>
+        <br><br>
+        <div class="form-container">
+        <form method="POST" action="/predictprediabetes" class="form">
+                <br><br>
+                1. Age:
+                <input type="number" name="age" min="0" max="110" placeholder="Enter Age" required>
+                <br><br>
+                2. Gender at birth:
+                <select name="Sex">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+                3. Have you ever had a Stroke:
+                <select name="Stroke">
+                    <option value="2">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <br><br>
+                4. Do you have Depressive Episodes OR feelings of depression:
+                <select name="DepressionEpisodes">
+                    <option value="2">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">Sometimes</option>
+                </select>
+                <br><br>
+                5. What is your Race:
+                <select name="Race">
+                    <option value="1">White</option>
+                    <option value="2">African American</option>
+                    <option value="3">American Indian</option>
+                    <option value="4">Asian</option>
+                    <option value="5">Multiracial</option>
+                    <option value="88">Others</option>
+                </select>
+                <br><br>
+                6. How often Smoke Cigarettes:
+                <select name="SmokerStatus">
+                    <option value="1">Smoke Everyday</option>
+                    <option value="2">Smoke Some Days</option>
+                    <option value="3">Used to Smoke, No longer Smoking</option>
+                    <option value="4">Never Smoked</option>
+                </select>
+                <br><br>
+                7. Do you vape or use E-Cigarettes:
+                <select name="VapeStatus">
+                    <option value="2">Never Used a Vape/E-Cigarette</option>
+                    <option value="1">Yes</option>
+                </select>
+                <br><br>
+                8. Do you binge drink (More than 5 drinks per any occasion):
+                <select name="BingeDrinker">
+                    <option value="1">No</option>
+                    <option value="2">Yes</option>
+                </select>
+                <br><br>
+                9. How many alcoholic drinks do you have per week:
+                <input type="number" name="DrinkPerWeek" placeholder="Enter your average drinks per week" required>
+                <br><br>
+                10. Have you Exercised in the last 30 days:
+                <select name="PhysAct">
+                    <option value="2">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <br><br>
+                11. How would you rate your health:
+                <select name="HealthRating">
+                    <option value="1">Good or Excellent</option>
+                    <option value="2">Fair or Poor</option>
+                </select>
+                <br><br>
+                12. In the past 30 days, how many days consisted of GOOD physical health:
+                <select name="PhysicalHealth">
+                    <option value="1">ZERO days</option>
+                    <option value="2">1-13 days of the month</option>
+                    <option value="3">More than 14 days of the month</option>
+                </select>
+                <br><br>
+                13. In the past 30 days, how many days consisted of GOOD mental health:
+                <select name="MentalHealth">
+                    <option value="1">ZERO days</option>
+                    <option value="2">1-13 days of the month</option>
+                    <option value="3">More than 14 days of the month</option>
+                </select>
+                14. Do you have mild to severe difficulty walking:
+                <select name="DiffWalk">
+                    <option value="2">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <br><br>
+                15. Enter your height in cm:
+                <input type="number" name="Height" step="0.01" placeholder="Enter Height" required>
+                <br><br>
+                16. Enter your weight in kg:
+                <input type="number" name="Weight" step="0.01" placeholder="Enter Weight" required>
+                <br><br>
+            <a href="{{ url_for('predict_prediabetes') }}"><button class="diabetes-button">Predict</button></a>
+        </form>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <p>&copy; Senior Project I. All rights reserved BrownMonday.</p>
+    </footer>
+
+</body>
+</html>
